@@ -18,17 +18,19 @@ class ViewController: UIViewController {
         }
     }
 
-    var user: User? = User()
+    var user1: User? = User()
+    var user2: User? = User()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        user?.observeInfo()
+        user1?.observeInfo()
+        user2?.observeInfo()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             NotificationCenter.postNotification(name: "info", payload: Info(text: "Hello"))
 
-            self.user = nil
+            self.user1 = nil
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 NotificationCenter.postNotification(name: "info", payload: Info(text: "World"))
